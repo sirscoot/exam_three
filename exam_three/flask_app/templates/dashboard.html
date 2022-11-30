@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block content %}
+<div class="d-flex justify-content-around mt-2">
+	<h2>Welcome to Car Dealz, {{ current_user.first_name }} {{ current_user.last_name }}!</h2>
+	<a href="/logout" class="btn-primary">Logout</a>
+</div>
+
+
+<div class="container mt-4">
+	<a href="new_car" class="btn btn-primary">Add a car</a>
+</div>
+<div class="container d-flex justify-content-center">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Make</th>
+				<th scope="col">Model</th>
+				<th scope="col">year</th>
+				<th scope="col">Price</th>
+				<th scope="col">Seller</th>
+				<th scope="col">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for car in cars %}
+			<tr>
+				<th scope="row">{{car.make}}</th>
+				<th scope="row">{{car.model}}</th>
+				<th scope="row">{{car.year}}</th>
+				<th scope="row">${{car.price}}</th>
+				<th scope="row">{{car.creator.first_name}} {{car.creator.last_name}}</th>
+				<th scope="row">
+					<a href="/show/{{car.id}}">View</a> {% if session['user_id'] == car.creator.id %}| <a href="/edit/{{car.id}}">Edit</a> | <a href="/delete/{{car.id}}">Delete</a> {% endif %}
+				</th>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Car{% endblock %}
+
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+	<h2>Put up a car for sale</h2>
+</div>
+
+<div class="container d-flex justify-content-center mb-2">
+	<div class="container d-flex justify-content-center">
+	<a href="/dashboard" class="btn btn-primary" style="margin-right: 5px;">Home</a>
+	<a href="/logout" class="btn btn-primary" style="margin-left: 5px">Logout</a>
+</div>
+</div>
+
+
+
+<div class="d-flex justify-content-center">
+	<form action="/save" method="post">
+		{% with messages = get_flashed_messages(category_filter=['add']) %}
+			{% if messages %}
+				<div class="alert alert-danger" role="alert">
+					<strong>Error!</strong>
+					{% for message in messages %}
+						<p>{{ message }}</p>
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endwith %}
+		<div class="form-group">
+			<label for="price">Price:</label>
+			<input type="number" name="price" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="model">Model:</label>
+			<input type="text" name="model" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="make">Make:</label>
+			<input type="text" name="make" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="year">Year:</label>
+			<input type="number" name="year" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="description">Description:</label>
+			<textarea name="description" class="form-control"></textarea>
+		</div>
+
+		<input type="hidden" name="user_id" value="{{ session['user_id'] }}">
+
+		<input type="submit" value="Add car" class="btn btn-primary mt-2">
+	</form>
+</div>
+{% endblock %}

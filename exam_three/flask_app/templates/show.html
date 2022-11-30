@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Show{% endblock %}
+
+
+{% block content %}
+<div class="d-flex justify-content-center">
+	<a href="/logout" class="card-link me-2">Logout</a>
+	<a href="/dashboard" class="card-link ms-2">Home</a>
+</div>
+		<div class="d-flex justify-content-center mt-5">
+			<div class="card" style="width: 30rem;">
+			  <div class="card-body">
+			    <h5 class="card-title">Year: {{ cars.year }}</h5>
+		    	<h6 class="card-text">Make: {{ cars.make }}</h6>
+		    	<h6 class="card-text">Model: {{ cars.model }}</h6>
+			    <p class="card-text">Description: {{ cars.description }}</p>
+
+			    <!-- have not been able to get the seller name displayed -->
+			    <p class="card-text">Seller: {{ cars.first_name }} {{ cars.last_name }}</p> 
+			    <a href="/dashboard" class="btn btn-primary">Home</a>
+				{% if session['user_id'] != cars.user_id %}
+	    		<a href="/delete/{{ cars.id }}" class="btn btn-primary">Purchase</a>
+				{% endif %}
+			  </div>
+			</div>
+		</div>
+{% endblock %}

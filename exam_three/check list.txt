@@ -1,0 +1,39 @@
+Check List:
+
+- All login and registration fields are present: check
+- First name min 3 characters: check
+- Last name min 3 characters: check
+- Email validation: check
+- Password is min 8 characters: check
+
+- Logged in users name is displayed at the top: check
+- Logout button added: check
+- All cars in the database that are for sale have their columns visible: check
+- View link added: check
+- Edit and delete links added: check
+- Button redirecting to add a new car has been added: check
+- Delete link removes car from database: check
+
+- All car information except for seller's first and last name is displayed (idk why): check
+- Purchase button deletes the car from the database: check
+- Button logs out the user: check
+- Button to redirect back to dashboard added: check
+
+- Edit form is populated and can be edited: check
+- Validations for edit form added: check
+- Year and price minimun thresholds added: check
+- Error messages are displayed: check
+- Logout button added: check
+- Dashboard redirect button added: check
+
+- Form for adding a new car to database made: check
+- Validations added to form: check
+- Year and price minimun thresholds added: check
+- Error messages are displayed: check
+- Logout button added: check
+- Dashboard redirect button added: check
+
+
+This went smoother than my first attempt. Way better. I was able to figure out some stuff on my own too while playing around. I have to get over my scared mindset and just go in a break things to learn. I really benefited when I just jumped in and did it.
+
+*Note: The only thing the really stumped me was getting the seller names to appear on the show page. I could get the user session name to display but other methods I was trying were not working. Was a trickier problem than I thought it would be. I tried some weird jank with getting the user with the cars left joined on and filtering by the id. It felt like the right path, but I just couldn't seem to get it to work the way it was supposed to be. It's probably some small dumb thing like usual.
